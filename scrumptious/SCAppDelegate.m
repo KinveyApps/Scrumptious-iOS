@@ -172,8 +172,8 @@ NSString *const SCSessionStateChangedNotification = @"com.facebook.Scrumptious:S
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //Initialize Kinvey client
-    (void) [[KCSClient sharedClient] initializeKinveyServiceForAppKey:@"kid_TPiFBKY3uJ"
-                                                        withAppSecret:@"56cbecbe478341359ef21ae6db6c566d"
+    (void) [[KCSClient sharedClient] initializeKinveyServiceForAppKey:@"<#App Key#>"
+                                                        withAppSecret:@"<#App Secret#>"
                                                          usingOptions:nil];
     
     //Test that Kinvey service is available    

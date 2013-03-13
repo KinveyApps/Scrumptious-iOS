@@ -44,7 +44,7 @@
 	<key>CFBundleVersion</key>
 	<string>${FB_BUNDLE_VERSION}</string>
 	<key>FacebookAppID</key>
-	<string>497785620267286</string>
+	<string>&lt;#Facebook App ID#&gt;</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIRequiredDeviceCapabilities</key>
