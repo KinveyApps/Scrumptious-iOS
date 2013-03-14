@@ -20,9 +20,9 @@ The sample repository comes with the KinveyKit and Fracebook frameworks that it 
 ## Modifications to the Original Scrumptious
 1. Created MealModel object to represent the OG meal object. This is used to store the meal's information in the Kinvey backend.
 1. MealModel objects are populated with data chosen by the user in the interface, and then uploaded to Kinvey in three separate steps:
-    * Upload the image to Kinvey.
-    * Upload the data to Kinvey.
-    * Tell Kinvey to post the `eat` action to the user's timeline.
+    1. Upload the image to Kinvey.
+    2. Upload the data to Kinvey.
+    3. Tell Kinvey to post the `eat` action to the user's timeline.
 1. Added ability to take a picture of the meal.
 1. Added additional OG fields, such as `determiner`, to improve the user experience.
 1. Updated code to latest Objective-C syntax (Xcode 4.6). 
