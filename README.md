@@ -1,8 +1,8 @@
 Scrumptious (Kinvey)
 =====
-This sample code shows how to modify Facebook's [Scrumptious Sample App](https://github.com/facebook/facebook-ios-sdk/tree/master/samples/Scrumptious) to use Kinvey to host Open Graph Objects and post actions to a user's timeline. Kinvey dynamically generates the Open Graph object html based upon the information chosen by the user. This means it's easily extended and changeable.
+This sample code shows how to modify Facebook's [Scrumptious Sample App](https://github.com/facebook/facebook-ios-sdk/tree/master/samples/Scrumptious) to use Kinvey to host Open Graph Objects and post actions to a user's timeline. Kinvey dynamically generates the Open Graph object html based upon the information chosen by the user. 
 
-Scrumptious users post that they "ate" a meal, allowing them to tag where, when, and with who they ate the meal, including the ability to take a picture of the meal. 
+Scrumptious users post that they "ate" a meal, allowing them to tag where, when, and with whom they ate the meal, and attach a picture of the meal. 
 
 ## Using the Sample
 The sample repository comes with the KinveyKit and Fracebook frameworks that it was developed against. In production code, you should update to the latest versions of these libraries.
@@ -13,16 +13,16 @@ The sample repository comes with the KinveyKit and Fracebook frameworks that it 
 ### Set-up the Backend
 1. Create your Scrumptious App on Facebook.
     * Set up the "eat" action and "meal" object.
-2. Create a new App on Kinvey.
-    1. Create a "meals" collection. This is store the data for each meal uploaded by the users.
-    2. Create a "External Data" -> "Facebook" collection. Follow the steps in [this tutorial](http://devcenter.kinvey.com/ios/tutorials/facebook-opengraph-tutorial) set up the mappings between the Kinvey object and the Facebook object.
+2. Create a new App on [Kinvey](https://console.kinvey.com/).
+    * Create a "meals" collection to store the data for each meal uploaded by the users.
+    * Create a "External Data" -> "Facebook" collection. Follow the steps in [this tutorial](http://devcenter.kinvey.com/ios/tutorials/facebook-opengraph-tutorial) set up the mappings between the Kinvey object and the Facebook object.
 
 ## Modifications to the Original Scrumptious
 1. Created MealModel object to represent the OG meal object. This is used to store the meal's information in the Kinvey backend.
 1. MealModel objects are populated with data chosen by the user in the interface, and then uploaded to Kinvey in three separate steps:
-    1. Upload the image to Kinvey.
-    1. Upload the data to Kinvey.
-    1. Tell Kinvey to post the `eat` action to the user's timeline.
+    * Upload the image to Kinvey.
+    * Upload the data to Kinvey.
+    * Tell Kinvey to post the `eat` action to the user's timeline.
 1. Added ability to take a picture of the meal.
 1. Added additional OG fields, such as `determiner`, to improve the user experience.
 1. Updated code to latest Objective-C syntax (Xcode 4.6). 
