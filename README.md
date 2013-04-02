@@ -29,6 +29,10 @@ The sample repository comes with the KinveyKit and Fracebook frameworks that it 
 
     3. Add a new action `kinvey_scrumptious:eat` to represent the eat action.
 
+### Set-up the App
+1. In `SCAppDelegate application:didFinishLaunchingWithOptions:` enter your Kinvey app __App ID__ and __App Secret__.
+2. In Scrumptioius-Info.plist, enter your __Facebook App ID__ in the `FacebookAppID` and `URL Schemes` values.
+
 ## Modifications to the Original Scrumptious
 1. Created MealModel object to represent the OG meal object. This is used to store the meal's information in the Kinvey backend.
 1. MealModel objects are populated with data chosen by the user in the interface, and then uploaded to Kinvey in three separate steps:
