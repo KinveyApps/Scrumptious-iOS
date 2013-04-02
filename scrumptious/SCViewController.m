@@ -64,7 +64,7 @@ UIImagePickerControllerDelegate>
     
     self.title = @"Scrumptious";
     
-
+    
     
     // Get the CLLocationManager going.
     self.locationManager = [[CLLocationManager alloc] init];
@@ -110,7 +110,7 @@ UIImagePickerControllerDelegate>
                              @"",
                              @"",
                              @""];
-
+    
     
     // First create the Open Graph meal object for the meal we ate.
     [self resetMeal];
@@ -138,7 +138,7 @@ UIImagePickerControllerDelegate>
     
     // Release any retained subviews of the main view.
     self.mealPickerActionSheet = nil;
-
+    
     _locationManager.delegate = nil;
     _mealPickerActionSheet.delegate = nil;
 }
@@ -184,7 +184,7 @@ UIImagePickerControllerDelegate>
         
         //Convert the UIImage to JPEG data
         NSData *imageData = UIImageJPEGRepresentation(self.foodPicture, 0.9);
-
+        
         [KCSResourceService saveData:imageData toResource:path completionBlock:^(NSArray *objectsOrNil, NSError *errorOrNil) {
             if (errorOrNil == nil) {
                 NSLog(@"resourceService completed -> %i", [objectsOrNil count]);
@@ -234,13 +234,29 @@ UIImagePickerControllerDelegate>
                                objectType:@"kinvey_scrumptious:meal" //the objectType
                            optionalParams:nil
                                completion:^(NSString *actionId, NSError *errorOrNil) {
-        //silently fail -- If Open Graph integration is essential, you would have to retry this action again later
-        NSLog(@"Finished with error = %@", errorOrNil);
-        self.foodPicture = nil;
-        [self resetMeal];
-        [self.menuTableView reloadRowsAtIndexPaths: @[[NSIndexPath indexPathForRow:3 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
-        [self updateSelections];
-    }];
+                                   NSLog(@"Finished publshing story. ID: %@, error (if any) = %@", actionId, errorOrNil);
+                                   
+                                   if (errorOrNil == nil) {
+                                       [[[UIAlertView alloc] initWithTitle:@"Result"
+                                                                   message:[NSString stringWithFormat:@"Posted Open Graph action, id: %@",
+                                                                            actionId]
+                                                                  delegate:nil
+                                                         cancelButtonTitle:@"Thanks!"
+                                                         otherButtonTitles:nil]
+                                        show];
+                                       
+                                       // start over
+                                       self.foodPicture = nil;
+                                       [self resetMeal];
+                                       [self.menuTableView reloadRowsAtIndexPaths: @[[NSIndexPath indexPathForRow:3 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
+                                       [self updateSelections];
+                                   } else {
+                                       [[[UIAlertView alloc] initWithTitle:@"Something Went Wrong"
+                                                                   message:errorOrNil.localizedDescription                                                                  delegate:nil
+                                                         cancelButtonTitle:@"OK"
+                                                         otherButtonTitles:nil] show];
+                                   }
+                               }];
 }
 
 
@@ -251,13 +267,13 @@ UIImagePickerControllerDelegate>
     if ([FBSession.activeSession.permissions indexOfObject:@"publish_actions"] == NSNotFound) {
         
         [FBSession.activeSession requestNewPublishPermissions:@[@"publish_actions"]
-                                                   defaultAudience:FBSessionDefaultAudienceFriends
-                                                 completionHandler:^(FBSession *session, NSError *error) {
-                                                     if (!error) {
-                                                         // re-call assuming we now have the permission
-                                                         [self announce:sender];
-                                                     }
-                                                 }];
+                                              defaultAudience:FBSessionDefaultAudienceFriends
+                                            completionHandler:^(FBSession *session, NSError *error) {
+                                                if (!error) {
+                                                    // re-call assuming we now have the permission
+                                                    [self announce:sender];
+                                                }
+                                            }];
     } else {
         self.announceButton.enabled = false;
         [self centerAndShowActivityIndicator];
@@ -293,7 +309,7 @@ UIImagePickerControllerDelegate>
         if (determiner.length > 0){
             self.mealModel.determiner = determiner;
         }
-
+        
         [self updateSelections];
     }
 }
@@ -317,11 +333,11 @@ UIImagePickerControllerDelegate>
 
 - (void)updateSelections {
     [self updateCellIndex:MEAL withSubtitle:(self.mealModel.selectedMeal ?
-                                          self.mealModel.selectedMeal :
-                                          @"Select one")];
+                                             self.mealModel.selectedMeal :
+                                             @"Select one")];
     [self updateCellIndex:PLACE withSubtitle:(self.mealModel.selectedPlace ?
-                                          self.mealModel.selectedPlace.name :
-                                          @"Select one")];
+                                              self.mealModel.selectedPlace.name :
+                                              @"Select one")];
     
     NSString *friendsSubtitle = @"Select friends";
     int friendCount = self.mealModel.selectedFriends.count;
@@ -441,12 +457,12 @@ UIImagePickerControllerDelegate>
             break;
         case PICTURE:
             cell.textLabel.text = @"How's it look?";
-            cell.detailTextLabel.text = @"Take a picture";
-            if(self.foodPicture == nil){
+            if (self.foodPicture == nil){
                 cell.imageView.image = [UIImage imageNamed:@"camera"];
-            }else{
+                cell.detailTextLabel.text = @"Take a picture";
+            } else{
                 cell.imageView.image = self.foodPicture;
-                
+                cell.detailTextLabel.text = @"Picture selected";
             }
             
             break;

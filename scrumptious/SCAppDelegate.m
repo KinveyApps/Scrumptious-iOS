@@ -176,7 +176,7 @@ NSString *const SCSessionStateChangedNotification = @"com.facebook.Scrumptious:S
                                                         withAppSecret:@"<#App Secret#>"
                                                          usingOptions:nil];
     
-    //Test that Kinvey service is available    
+    //Test that Kinvey service is available
     [KCSPing pingKinveyWithBlock:^(KCSPingResult *result) {
         if (result.pingWasSuccessful == YES){
             NSLog(@"Kinvey Ping Success");
