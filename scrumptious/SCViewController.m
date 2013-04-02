@@ -229,26 +229,18 @@ UIImagePickerControllerDelegate>
     }
     
     //Kinvey's Open Graph collection just needs a small amount of data to post the OG action, the rest comes from the defined mappings between the meal collection and open graph.
-    NSDictionary* obj = @{
-                          @"entityId" : mealObject.objectId, //maps to a specific meal in the meals collection
-                          @"entityColection" : @"Eating",
-                          @"actionType" : @"eat", //defined as an app action in Facebook
-                          @"objectType" : @"meal", //defined as a type in Facebook
-                          @"tags" : friends                          
-                          };
-    
-    
-    KCSCollection* fbCollection = [[KCSClient sharedClient] collectionFromString:@"FBOG" withClass:[NSDictionary class]];
-    KCSAppdataStore* store = [KCSAppdataStore storeWithCollection:fbCollection options:nil];
-    [store saveObject:obj withCompletionBlock:^(NSArray *objectsOrNil, NSError *errorOrNil) {
+    [KCSFacebookHelper publishToOpenGraph:mealObject.objectId  //the entity's KCSEntityKeyId
+                                   action:@"kinvey_scrumptious:eat" // the action type
+                               objectType:@"kinvey_scrumptious:meal" //the objectType
+                           optionalParams:nil
+                               completion:^(NSString *actionId, NSError *errorOrNil) {
         //silently fail -- If Open Graph integration is essential, you would have to retry this action again later
         NSLog(@"Finished with error = %@", errorOrNil);
         self.foodPicture = nil;
         [self resetMeal];
         [self.menuTableView reloadRowsAtIndexPaths: @[[NSIndexPath indexPathForRow:3 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
         [self updateSelections];
-        
-    } withProgressBlock:nil];
+    }];
 }
 
 

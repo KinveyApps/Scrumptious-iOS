@@ -41,6 +41,9 @@ typedef enum  {
     KCSSocialIDTwitter,
     /** LinkedIn */
     KCSSocialIDLinkedIn,
+    /** Salesforce */
+    KCSSocialIDSalesforce,
+    KCSSocialIDOther,
 } KCSUserSocialIdentifyProvider;
 
 /** Access Dictionary key for the token: both Facebook & Twitter */
@@ -108,7 +111,7 @@ typedef enum  {
  Since all requests *must* be made through a user, the library maintains the concept of a current user, which is the
  user used to make all requests.  Convienience routines are available to manage the state of this Current User.
  
- Like other entities, KCSUsers can have different levels of access control. The `user` collection can be made private in the Kinvey console; if it is private, users will still have four fields that can be queried publicly: username, surname, given name, and email. These can be discovered with ... 
+ Like other entities, KCSUsers can have different levels of access control. The `user` collection can be made private in the Kinvey console; if it is private, users will still have four fields that can be queried publicly: username, surname, given name, and email. These can be discovered with `KCSUserDiscovery`.
  
  Like other entities, the `metadata` property can be modified to control access on a user-by-user basis, beyond the `user` collection-wide settings. 
  
@@ -125,7 +128,7 @@ typedef enum  {
 /*! Password of this Kinvey User */
 @property (nonatomic, copy) NSString *password;
 /** The Kinvey user collection id for the user */
-@property (nonatomic, retain) NSString *userId;
+@property (nonatomic, strong) NSString *userId;
 /*! Device Tokens of this User */
 @property (nonatomic, copy) NSArray *deviceTokens;
 /*! Session Auth Token, if available */
@@ -133,7 +136,7 @@ typedef enum  {
 /*! Access Control Metadata of this User 
  @see KCSPersistable
  */
-@property (nonatomic, retain) KCSMetadata *metadata;
+@property (nonatomic, strong) KCSMetadata *metadata;
 /** Optional surname for the user. Publicly queryable be default. */
 @property (nonatomic, copy) NSString *surname;
 /** Optional given (first) name for the user. Publicly queryable be default. */
@@ -146,6 +149,10 @@ typedef enum  {
  */
 @property (nonatomic, readonly) BOOL emailVerified;
 
+/** Checks if credentials have been stored in the keychain. 
+ 
+ This is useful to check if a user will be loaded on the first call to Kinvey, or if an implicit user will be created instead. 
+ */
 + (BOOL) hasSavedCredentials;
 
 /** Clears and saved credentials from the keychain.
