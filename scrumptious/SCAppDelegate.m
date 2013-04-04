@@ -84,11 +84,14 @@ NSString *const SCSessionStateChangedNotification = @"com.facebook.Scrumptious:S
                                      NSLog(@"Kinvey and Facebook auth completed!");
                                  } else {
                                      NSLog(@"Kinvey and Facebook auth FAILED!!");
+                                     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Unable to log in to Kinvey."
+                                                                                         message:error.localizedDescription
+                                                                                        delegate:nil
+                                                                               cancelButtonTitle:@"OK"
+                                                                               otherButtonTitles:nil];
+                                     [alertView show];
                                  }
                              }];
-                
-
-            
             }
             break;
         case FBSessionStateClosed: {
@@ -175,7 +178,7 @@ NSString *const SCSessionStateChangedNotification = @"com.facebook.Scrumptious:S
     (void) [[KCSClient sharedClient] initializeKinveyServiceForAppKey:@"<#App Key#>"
                                                         withAppSecret:@"<#App Secret#>"
                                                          usingOptions:nil];
-    
+
     //Test that Kinvey service is available
     [KCSPing pingKinveyWithBlock:^(KCSPingResult *result) {
         if (result.pingWasSuccessful == YES){

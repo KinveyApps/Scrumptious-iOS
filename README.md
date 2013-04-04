@@ -13,8 +13,9 @@ The sample repository comes with the KinveyKit and Fracebook frameworks that it 
 ### Set-up the Backend
 1. Create your Scrumptious App on Facebook.
     * Set up the "eat" action and "meal" object.
+    * App namespace is `kinvey_scrumptious`.
 2. Create a new App on [Kinvey](https://console.kinvey.com/).
-    1. Create a "meals" collection to store the data for each meal uploaded by the users.
+    1. Create a "Eating" collection to store the data for each meal uploaded by the users.
     2. Set up mappings in the "Data Links" -> "Facebook Open Graph" settings. Follow the steps in [this tutorial](http://devcenter.kinvey.com/ios/tutorials/facebook-opengraph-tutorial) set up the mappings between the Kinvey object and the Facebook object.
          * You'll need to paste the "get code" for the meal object. This will set up some of the fields and settings for a `kinvey_scrumptious:meal` object type.
          * Map the following fields:
