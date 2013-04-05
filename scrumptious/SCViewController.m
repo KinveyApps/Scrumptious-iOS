@@ -228,11 +228,19 @@ UIImagePickerControllerDelegate>
         [friends addObject: f[@"id"]];
     }
     
+    NSMutableDictionary* params = [NSMutableDictionary dictionary];
+    if (friends.count > 0) {
+        params[@"tags"] = friends;
+    }
+    if (mealObject.selectedPlace) {
+        params[@"place"] = mealObject.selectedPlace.id;
+    }
+    
     //Kinvey's Open Graph collection just needs a small amount of data to post the OG action, the rest comes from the defined mappings between the meal collection and open graph.
     [KCSFacebookHelper publishToOpenGraph:mealObject.objectId  //the entity's KCSEntityKeyId
                                    action:@"kinvey_scrumptious:eat" // the action type
                                objectType:@"kinvey_scrumptious:meal" //the objectType
-                           optionalParams:nil
+                           optionalParams:params
                                completion:^(NSString *actionId, NSError *errorOrNil) {
                                    NSLog(@"Finished publshing story. ID: %@, error (if any) = %@", actionId, errorOrNil);
                                    
