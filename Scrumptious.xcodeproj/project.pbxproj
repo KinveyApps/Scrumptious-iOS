@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2338D7B316D0194D007BEF9B /* libUAirshipPush-1.3.3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2338D7B016D0194D007BEF9B /* libUAirshipPush-1.3.3.a */; };
-		2338D7B516D0194D007BEF9B /* KinveyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2338D7B216D0194D007BEF9B /* KinveyKit.framework */; };
 		2338D7B716D01A8D007BEF9B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2338D7B616D01A8D007BEF9B /* CFNetwork.framework */; };
 		2338D7B916D01A96007BEF9B /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2338D7B816D01A96007BEF9B /* CoreTelephony.framework */; };
 		2338D7BB16D01A9C007BEF9B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2338D7BA16D01A9C007BEF9B /* libsqlite3.dylib */; };
@@ -20,6 +18,8 @@
 		2380EB8816D099580036728B /* MealModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2380EB8716D099580036728B /* MealModel.m */; };
 		23F33DC416DD59AB00EF2527 /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23F33DC216DD59AB00EF2527 /* camera@2x.png */; };
 		23F33DC516DD59AB00EF2527 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 23F33DC316DD59AB00EF2527 /* camera.png */; };
+		2779D08917A1707900FA3FE8 /* libUAirship-1.4.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2779D08817A1707900FA3FE8 /* libUAirship-1.4.0.a */; };
+		2779D08B17A1708500FA3FE8 /* KinveyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2779D08A17A1708500FA3FE8 /* KinveyKit.framework */; };
 		27F5D7DA16EFCA0D001828F3 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F5D7D916EFCA0D001828F3 /* FacebookSDK.framework */; };
 		846809C1158F85A100F2DBB9 /* action-eating.png in Resources */ = {isa = PBXBuildFile; fileRef = 846809BD158F85A100F2DBB9 /* action-eating.png */; };
 		846809C2158F85A100F2DBB9 /* action-location.png in Resources */ = {isa = PBXBuildFile; fileRef = 846809BE158F85A100F2DBB9 /* action-location.png */; };
@@ -50,8 +50,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2338D7B016D0194D007BEF9B /* libUAirshipPush-1.3.3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libUAirshipPush-1.3.3.a"; sourceTree = "<group>"; };
-		2338D7B216D0194D007BEF9B /* KinveyKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KinveyKit.framework; sourceTree = "<group>"; };
 		2338D7B616D01A8D007BEF9B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		2338D7B816D01A96007BEF9B /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		2338D7BA16D01A9C007BEF9B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -64,6 +62,8 @@
 		2380EB8716D099580036728B /* MealModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MealModel.m; path = scrumptious/MealModel.m; sourceTree = SOURCE_ROOT; };
 		23F33DC216DD59AB00EF2527 /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
 		23F33DC316DD59AB00EF2527 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		2779D08817A1707900FA3FE8 /* libUAirship-1.4.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libUAirship-1.4.0.a"; path = "Airship/libUAirship-1.4.0.a"; sourceTree = "<group>"; };
+		2779D08A17A1708500FA3FE8 /* KinveyKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KinveyKit.framework; path = Kinvey/KinveyKit.framework; sourceTree = "<group>"; };
 		27F5D7D916EFCA0D001828F3 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		846809BD158F85A100F2DBB9 /* action-eating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "action-eating.png"; path = "scrumptious/images/action-eating.png"; sourceTree = SOURCE_ROOT; };
 		846809BE158F85A100F2DBB9 /* action-location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "action-location.png"; path = "scrumptious/images/action-location.png"; sourceTree = SOURCE_ROOT; };
@@ -113,16 +113,16 @@
 				2338D7BB16D01A9C007BEF9B /* libsqlite3.dylib in Frameworks */,
 				2338D7B916D01A96007BEF9B /* CoreTelephony.framework in Frameworks */,
 				B9C1C35915129F0E008FA5D1 /* CoreLocation.framework in Frameworks */,
+				2779D08917A1707900FA3FE8 /* libUAirship-1.4.0.a in Frameworks */,
 				2338D7B716D01A8D007BEF9B /* CFNetwork.framework in Frameworks */,
 				85A928E316114706008699F1 /* Social.framework in Frameworks */,
 				B9A416A316113F1C001E7A77 /* AdSupport.framework in Frameworks */,
 				84A5DA9615A68A3D00FE54AF /* Accounts.framework in Frameworks */,
+				2779D08B17A1708500FA3FE8 /* KinveyKit.framework in Frameworks */,
 				B9CD0A74150EA4DD00560A93 /* UIKit.framework in Frameworks */,
 				B9CD0A76150EA4DD00560A93 /* Foundation.framework in Frameworks */,
 				B9CD0A78150EA4DD00560A93 /* CoreGraphics.framework in Frameworks */,
 				8592BE3D15816CCC00056680 /* AddressBook.framework in Frameworks */,
-				2338D7B316D0194D007BEF9B /* libUAirshipPush-1.3.3.a in Frameworks */,
-				2338D7B516D0194D007BEF9B /* KinveyKit.framework in Frameworks */,
 				27F5D7DA16EFCA0D001828F3 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,14 +130,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2338D7AF16D0194D007BEF9B /* Airship */ = {
-			isa = PBXGroup;
-			children = (
-				2338D7B016D0194D007BEF9B /* libUAirshipPush-1.3.3.a */,
-			);
-			path = Airship;
-			sourceTree = "<group>";
-		};
 		B9CD0A64150EA4DD00560A93 = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +150,8 @@
 		B9CD0A72150EA4DD00560A93 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2779D08A17A1708500FA3FE8 /* KinveyKit.framework */,
+				2779D08817A1707900FA3FE8 /* libUAirship-1.4.0.a */,
 				2338D7C416D01AB3007BEF9B /* Twitter.framework */,
 				2338D7C216D01AAF007BEF9B /* SystemConfiguration.framework */,
 				2338D7C016D01AAB007BEF9B /* Security.framework */,
@@ -166,8 +160,6 @@
 				2338D7BA16D01A9C007BEF9B /* libsqlite3.dylib */,
 				2338D7B816D01A96007BEF9B /* CoreTelephony.framework */,
 				2338D7B616D01A8D007BEF9B /* CFNetwork.framework */,
-				2338D7AF16D0194D007BEF9B /* Airship */,
-				2338D7B216D0194D007BEF9B /* KinveyKit.framework */,
 				85A928E216114706008699F1 /* Social.framework */,
 				B9A416A216113F1C001E7A77 /* AdSupport.framework */,
 				27F5D7D916EFCA0D001828F3 /* FacebookSDK.framework */,
@@ -414,7 +406,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					"$(SRCROOT)/Kinvey",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Scrumptious/Scrumptious-Prefix.pch";
@@ -442,7 +435,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
+					"$(SRCROOT)",
+					"$(SRCROOT)/Kinvey",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Scrumptious/Scrumptious-Prefix.pch";
