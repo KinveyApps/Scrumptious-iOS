@@ -247,8 +247,8 @@ NSString *const SCSessionStateChangedNotification = @"com.facebook.Scrumptious:S
         case FBErrorNonTextMimeTypeReturned:{
             return @"FBErrorNonTextMimeTypeReturned";
         }
-        case FBErrorNativeDialog:{
-            return @"FBErrorNativeDialog";
+        case FBErrorDialog:{
+            return @"FBErrorDialog";
         }
         default:
             return @"[Unknown]";

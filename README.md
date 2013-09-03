@@ -48,6 +48,11 @@ The sample repository comes with the KinveyKit and Fracebook frameworks that it 
 * To add new meal types, just add the name to the `self.mealTypes` array created in `SCViewController.m`'s `viewDidLoad` method. You will also need to determiner to the `self.determiners` array at the same index. The determiner is the English indefinite article that corresponds to the meal name. This is used to make the OG action read like a normal sentence. For example "Bob ate _a_ Hotdog", "Jill ate _an_ Escargot", "Roger ate Mexican".
 * To add new fields, add a property to `MealModel.h` and map that property to a backend field name in `MealModel.m`'s `hostToKinveyPropertyMapping` method. Then in the `FBOG` collection on the backend, map the field name to the Facebook Open Graph object field name. 
 
+## Platform Support
+* iOS 6+
+* Facebook SDK 3.7.1
+* KinveyKit 1.20.1
+
 ## Contact
 Website: [www.kinvey.com](http://www.kinvey.com)
 

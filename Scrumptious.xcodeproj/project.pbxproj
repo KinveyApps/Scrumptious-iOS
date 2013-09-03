@@ -18,7 +18,6 @@
 		2380EB8816D099580036728B /* MealModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2380EB8716D099580036728B /* MealModel.m */; };
 		23F33DC416DD59AB00EF2527 /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23F33DC216DD59AB00EF2527 /* camera@2x.png */; };
 		23F33DC516DD59AB00EF2527 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 23F33DC316DD59AB00EF2527 /* camera.png */; };
-		2779D08917A1707900FA3FE8 /* libUAirship-1.4.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2779D08817A1707900FA3FE8 /* libUAirship-1.4.0.a */; };
 		2779D08B17A1708500FA3FE8 /* KinveyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2779D08A17A1708500FA3FE8 /* KinveyKit.framework */; };
 		27F5D7DA16EFCA0D001828F3 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F5D7D916EFCA0D001828F3 /* FacebookSDK.framework */; };
 		846809C1158F85A100F2DBB9 /* action-eating.png in Resources */ = {isa = PBXBuildFile; fileRef = 846809BD158F85A100F2DBB9 /* action-eating.png */; };
@@ -62,7 +61,6 @@
 		2380EB8716D099580036728B /* MealModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MealModel.m; path = scrumptious/MealModel.m; sourceTree = SOURCE_ROOT; };
 		23F33DC216DD59AB00EF2527 /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
 		23F33DC316DD59AB00EF2527 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
-		2779D08817A1707900FA3FE8 /* libUAirship-1.4.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libUAirship-1.4.0.a"; path = "Airship/libUAirship-1.4.0.a"; sourceTree = "<group>"; };
 		2779D08A17A1708500FA3FE8 /* KinveyKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KinveyKit.framework; path = Kinvey/KinveyKit.framework; sourceTree = "<group>"; };
 		27F5D7D916EFCA0D001828F3 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		846809BD158F85A100F2DBB9 /* action-eating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "action-eating.png"; path = "scrumptious/images/action-eating.png"; sourceTree = SOURCE_ROOT; };
@@ -113,7 +111,6 @@
 				2338D7BB16D01A9C007BEF9B /* libsqlite3.dylib in Frameworks */,
 				2338D7B916D01A96007BEF9B /* CoreTelephony.framework in Frameworks */,
 				B9C1C35915129F0E008FA5D1 /* CoreLocation.framework in Frameworks */,
-				2779D08917A1707900FA3FE8 /* libUAirship-1.4.0.a in Frameworks */,
 				2338D7B716D01A8D007BEF9B /* CFNetwork.framework in Frameworks */,
 				85A928E316114706008699F1 /* Social.framework in Frameworks */,
 				B9A416A316113F1C001E7A77 /* AdSupport.framework in Frameworks */,
@@ -151,7 +148,6 @@
 			isa = PBXGroup;
 			children = (
 				2779D08A17A1708500FA3FE8 /* KinveyKit.framework */,
-				2779D08817A1707900FA3FE8 /* libUAirship-1.4.0.a */,
 				2338D7C416D01AB3007BEF9B /* Twitter.framework */,
 				2338D7C216D01AAF007BEF9B /* SystemConfiguration.framework */,
 				2338D7C016D01AAB007BEF9B /* Security.framework */,
@@ -406,18 +402,15 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)",
-					"$(SRCROOT)/Kinvey",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Kinvey\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Scrumptious/Scrumptious-Prefix.pch";
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				INFOPLIST_FILE = "Scrumptious/Scrumptious-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Airship\"",
-				);
+				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = (
 					"-lsqlite3.0",
 					"-ObjC",
@@ -435,18 +428,15 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)",
-					"$(SRCROOT)/Kinvey",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Kinvey\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Scrumptious/Scrumptious-Prefix.pch";
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				INFOPLIST_FILE = "Scrumptious/Scrumptious-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Airship\"",
-				);
+				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = (
 					"-lsqlite3.0",
 					"-ObjC",

@@ -27,11 +27,7 @@
 
 + (NSString *)generateUuidString
 {
-    CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
-    NSString *uuidString = (__bridge_transfer NSString *)CFUUIDCreateString(NULL, uuid);
-    CFRelease(uuid);
-    
-    return uuidString;
+    return [[NSUUID UUID] UUIDString];
 }
 
 + (MealModel *) newMealModel {
@@ -42,15 +38,14 @@
 
 - (NSDictionary*) hostToKinveyPropertyMapping {
     return  @{
-
-              @"objectId" : @"_id",
-              @"imageURL" : @"imageURL",
+              @"objectId" : KCSEntityKeyId,
+              @"imageId" : @"imageURL",
               @"imageName" : @"image",
               @"selectedMeal" : @"selectedMeal",
               @"url" : @"url",
               @"selectedFriends" : @"tags",
               @"selectedPlaceName" : @"place",
-              @"location" : @"_geoloc",
+              @"location" : KCSEntityKeyGeolocation,
               @"latitude" : @"latitude",
               @"longitude" : @"longitude",
               @"determiner" : @"determiner"

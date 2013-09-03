@@ -198,18 +198,14 @@ UIImagePickerControllerDelegate>
         
         //Convert the UIImage to JPEG data
         NSData *imageData = UIImageJPEGRepresentation(self.foodPicture, 0.9);
-        
-        [KCSResourceService saveData:imageData toResource:path completionBlock:^(NSArray *objectsOrNil, NSError *errorOrNil) {
-            if (errorOrNil == nil) {
-                NSLog(@"resourceService completed -> %i", [objectsOrNil count]);
-                KCSResourceResponse* obj = (KCSResourceResponse*)objectsOrNil[0];
-                self.mealModel.imageURL = [obj resourceId];
+        [KCSFileStore uploadData:imageData options:@{KCSFileFileName : path} completionBlock:^(KCSFile *uploadInfo, NSError *error) {
+            if (error == nil) {
+                self.mealModel.imageId = [uploadInfo fileId];
                 [self uploadToKinvey:self.mealModel];
             } else {
-                NSLog(@"resourceService failed with error %@.", errorOrNil);
+                NSLog(@"resourceService failed with error %@.", error);
             }
         } progressBlock:nil];
-        
     }else{
         //there is no image, so just upload to kinvey
         [self uploadToKinvey:self.mealModel];
@@ -555,12 +551,15 @@ UIImagePickerControllerDelegate>
             // iOS Address Book does.
             
             // Need to call ABAddressBookCreate in order for the next two calls to do anything.
-            ABAddressBookCreate();
-            ABPersonSortOrdering sortOrdering = ABPersonGetSortOrdering();
-            ABPersonCompositeNameFormat nameFormat = ABPersonGetCompositeNameFormat();
-            
-            friendPicker.sortOrdering = (sortOrdering == kABPersonSortByFirstName) ? FBFriendSortByFirstName : FBFriendSortByLastName;
-            friendPicker.displayOrdering = (nameFormat == kABPersonCompositeNameFormatFirstNameFirst) ? FBFriendDisplayByFirstName : FBFriendDisplayByLastName;
+            ABAddressBookRef ab = ABAddressBookCreateWithOptions(NULL, NULL);
+            if (ab != NULL) {
+                ABPersonSortOrdering sortOrdering = ABPersonGetSortOrdering();
+                ABPersonCompositeNameFormat nameFormat = ABPersonGetCompositeNameFormat();
+                
+                friendPicker.sortOrdering = (sortOrdering == kABPersonSortByFirstName) ? FBFriendSortByFirstName : FBFriendSortByLastName;
+                friendPicker.displayOrdering = (nameFormat == kABPersonCompositeNameFormatFirstNameFirst) ? FBFriendDisplayByFirstName : FBFriendDisplayByLastName;
+                CFRelease(ab);
+            }
             
             [friendPicker loadData];
             [friendPicker presentModallyFromViewController:self

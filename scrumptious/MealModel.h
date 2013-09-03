@@ -26,7 +26,7 @@
 @property (strong, nonatomic) NSString *objectId;
 
 @property (strong, nonatomic) NSString *url;
-@property (strong, nonatomic) NSString *imageURL;
+@property (strong, nonatomic) NSString *imageId;
 @property (strong, nonatomic) NSArray *selectedFriends;
 @property (strong, nonatomic) id<FBGraphPlace> selectedPlace;
 @property (strong, nonatomic) NSString *selectedPlaceName;
